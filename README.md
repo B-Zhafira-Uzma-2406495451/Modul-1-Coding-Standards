@@ -1,7 +1,7 @@
 # **Refleksi Modul 1**  
-Nama : Zhafira Uzma
-NPM : 2406495451
-Kelas : Adpro B
+Nama : Zhafira Uzma  
+NPM : 2406495451  
+Kelas : Adpro B  
 
 ## Refleksi 1
 ### Clean Code Principles :
@@ -21,3 +21,13 @@ Kelas : Adpro B
 ### Improvement Space
 1. Belum ada validasi input untuk product di sisi server. Hal ini dapat diperbaiki dengan menambahkan anotasi validasi seperti @NotBlank dan @Min(0) untuk memastikan data yang masuk selalu valid.
 2. Belum ada penanganan untuk objek Null. Hal ini dapat diperbaiki dengan membungkus hasil pencarian menggunakan Optional<Product> atau memberikan logika pengecekan di level service.
+
+
+## Refleksi 2
+### Question 1
+Setelah melakukan unit testing, saya merasa lega dan percaya diri terhadap kestablian dan keamanan kode saya. Menurut saya, untuk memastikan program kita memerlukan unit test dengan coverage yang tinggi.
+Namun, coverage yang tinggi atau sempurna (100%) tidak selalu berarti kalau program yang kita buat tidak memiliki bug atau error. Oleh karena itu, unit test harus mencakup positive, negative, dan edge case
+serta untuk jumlah unit test yang diperlukan adalah tidak menentu (selama mencakup ketiga case tersebut maka unit test sudah cukup)
+
+### Question 2
+
