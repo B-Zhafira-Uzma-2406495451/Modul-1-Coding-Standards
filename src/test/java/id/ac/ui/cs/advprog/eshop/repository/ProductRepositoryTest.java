@@ -65,4 +65,68 @@ class ProductRepositoryTest {
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
     }
+
+    @Test
+    void testEditPositive() {
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("Sampo Cap Bambang");
+        product.setProductQuantity(100);
+        productRepository.create(product);
+
+        Product updatedProduct = new Product();
+        updatedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        updatedProduct.setProductName("Sampo Cap Bambang Baru");
+        updatedProduct.setProductQuantity(200);
+
+        Product result = productRepository.edit(updatedProduct);
+
+        assertNotNull(result);
+        assertEquals("Sampo Cap Bambang Baru", result.getProductName());
+        assertEquals(200, result.getProductQuantity());
+    }
+
+    @Test
+    void testEditNegative() {
+        Product product = new Product();
+        product.setProductId("id-asli");
+        product.setProductName("Produk Asli");
+        product.setProductQuantity(10);
+        productRepository.create(product);
+
+        Product nonExistentProduct = new Product();
+        nonExistentProduct.setProductId("id-palsu");
+        nonExistentProduct.setProductName("Produk Palsu");
+
+        Product result = productRepository.edit(nonExistentProduct);
+
+        assertNull(result);
+    }
+
+    @Test
+    void testDeletePositive() {
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        productRepository.create(product);
+
+        productRepository.delete("eb558e9f-1c39-460e-8860-71af6af63bd6");
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertFalse(productIterator.hasNext());
+    }
+
+    @Test
+    void testDeleteNegative() {
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("Produk Penting");
+        productRepository.create(product);
+
+        productRepository.delete("id-salah");
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        assertTrue(productIterator.hasNext());
+        Product savedProduct = productIterator.next();
+        assertEquals("eb558e9f-1c39-460e-8860-71af6af63bd6", savedProduct.getProductId());
+    }
 }
