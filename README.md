@@ -30,4 +30,4 @@ Namun, coverage yang tinggi atau sempurna (100%) tidak selalu berarti kalau prog
 serta untuk jumlah unit test yang diperlukan adalah tidak menentu (selama mencakup ketiga case tersebut maka unit test sudah cukup)
 
 ### Question 2
-
+Pembuatan functional test suite baru dengan menggunakan setup procedures dan instance variable yang sama dengan kode lama akan mengakibatkan penurunan kualitas kode karena duplikasi. Penurunan kualitas kode ini akan mempersulit maintenance code sehingga jika konfigurasi set up berubah, kita harus mengubah konfigurasi dari setiap file. Oleh karena itu, hal ini dapat diperbaiki dengan mengimplementasikan setup logic yang sama ke base class agar logic tersebut dapat digunakan ketika testing tanpa harus menulis ulang kode. 
