@@ -28,6 +28,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args:
-            -Dsonar.projectKey=ISI_PROJECT_KEY_KAMU
-            -Dsonar.organization=ISI_NAMA_ORGANISASI_KAMU
+            -Dsonar.projectKey=b-zhafira-uzma-2406495451
+            -Dsonar.organization=B-Zhafira Uzma-2406495451
           projectBaseDir: .
