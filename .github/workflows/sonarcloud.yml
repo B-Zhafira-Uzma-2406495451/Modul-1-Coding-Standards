@@ -29,5 +29,5 @@ jobs:
         with:
           args:
             -Dsonar.projectKey=b-zhafira-uzma-2406495451
-            -Dsonar.organization=B-Zhafira Uzma-2406495451
+            -Dsonar.organization=B-Zhafira-Uzma-2406495451
           projectBaseDir: .
