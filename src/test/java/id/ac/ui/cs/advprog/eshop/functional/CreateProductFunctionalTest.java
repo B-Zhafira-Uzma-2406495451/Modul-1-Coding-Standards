@@ -45,12 +45,12 @@ class CreateProductFunctionalTest {
         WebElement nameInput = driver.findElement(By.name("productName"));
         WebElement quantityInput = driver.findElement(By.name("productQuantity"));
         WebElement submitButton = driver.findElement(By.tagName("button"));
-        nameInput.sendKeys("Sampo Cap Bambang");
+        nameInput.sendKeys("Shampoo");
         quantityInput.sendKeys("100");
         submitButton.click();
         assertEquals(baseUrl + "/product/list", driver.getCurrentUrl());
         String pageSource = driver.getPageSource();
-        assertTrue(pageSource.contains("Sampo Cap Bambang"));
+        assertTrue(pageSource.contains("Shampoo"));
         assertTrue(pageSource.contains("100"));
     }
 }
