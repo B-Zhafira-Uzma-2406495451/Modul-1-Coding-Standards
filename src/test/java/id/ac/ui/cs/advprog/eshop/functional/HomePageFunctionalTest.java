@@ -16,10 +16,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ExtendWith(SeleniumJupiter.class)
 class HomePageFunctionalTest {
-
     @LocalServerPort
     private int serverPort;
-
     @Value("${app.baseUrl:http://localhost}")
     private String testBaseUrl;
 
@@ -34,7 +32,6 @@ class HomePageFunctionalTest {
     void pageTitle_isCorrect(ChromeDriver driver) throws Exception {
         driver.get(baseUrl);
         String pageTitle = driver.getTitle();
-
         assertEquals("ADV Shop", pageTitle);
     }
 
@@ -43,7 +40,6 @@ class HomePageFunctionalTest {
         driver.get(baseUrl);
         String welcomeMessage = driver.findElement(By.tagName("h3"))
                 .getText();
-
         assertEquals("Welcome", welcomeMessage);
     }
 }
