@@ -9,5 +9,4 @@ public interface ProductService {
     public Product findById(String id);
     public Product edit(Product product);
     public void deleteProductById(String id);
-
 }
