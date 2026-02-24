@@ -3,6 +3,7 @@ plugins {
     jacoco
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.sonarqube") version "4.4.1.3373"
 }
 
 group = "id.ac.ui.cs.advprog"
@@ -21,6 +22,14 @@ configurations {
     }
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "B-Zhafira-Uzma-2406495451_Modul-1-Coding-Standards")
+        property("sonar.organization", "b-zhafira-uzma-2406495451")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
+    }
+}
 
 val seleniumJavaVersion = "4.14.1"
 val seleniumJupiterVersion = "5.0.1"
