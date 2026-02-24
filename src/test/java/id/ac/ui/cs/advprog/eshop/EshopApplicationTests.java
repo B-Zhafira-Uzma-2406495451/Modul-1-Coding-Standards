@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 class EshopApplicationTests {
 
     @Test
-    void contextLoads() {
+    void contextLoads() { // This method is intentionally empty to check if the Spring application context loads successfully.
     }
 
     @Test
