@@ -6,6 +6,9 @@ import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.ac.ui.cs.advprog.eshop.model.Order;
+import id.ac.ui.cs.advprog.eshop.model.Product;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderRepositoryTest {
