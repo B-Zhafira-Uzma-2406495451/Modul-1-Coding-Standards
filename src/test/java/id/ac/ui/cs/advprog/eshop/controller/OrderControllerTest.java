@@ -20,7 +20,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+
 @WebMvcTest(controllers = OrderController.class)
+@ImportAutoConfiguration(exclude = ThymeleafAutoConfiguration.class)
 class OrderControllerTest {
 
     @Autowired
