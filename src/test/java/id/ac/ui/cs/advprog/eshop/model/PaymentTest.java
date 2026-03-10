@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +40,7 @@ class PaymentTest {
         assertEquals("VOUCHER", payment.getMethod());
         assertEquals(this.paymentData, payment.getPaymentData());
         assertEquals(this.order, payment.getOrder());
-        assertEquals("WAITING_PAYMENT", payment.getStatus()); // Harus WAITING_PAYMENT di awal
+        assertEquals(PaymentStatus.WAITING_PAYMENT.getValue(), payment.getStatus());
     }
 
     @Test
@@ -49,17 +50,25 @@ class PaymentTest {
         assertNotNull(payment.getId());
         assertNotEquals("", payment.getId());
         assertEquals("VOUCHER", payment.getMethod());
-        assertEquals("WAITING_PAYMENT", payment.getStatus());
+
+        assertEquals(PaymentStatus.WAITING_PAYMENT.getValue(), payment.getStatus());
     }
 
     @Test
-    void testSetStatus() {
+    void testSetStatusToValidStatus() {
         Payment payment = new Payment("payment-123", "VOUCHER", this.paymentData, this.order);
 
-        payment.setStatus("SUCCESS");
-        assertEquals("SUCCESS", payment.getStatus());
+        payment.setStatus(PaymentStatus.SUCCESS.getValue());
+        assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
 
-        payment.setStatus("REJECTED");
-        assertEquals("REJECTED", payment.getStatus());
+        payment.setStatus(PaymentStatus.REJECTED.getValue());
+        assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
+    }
+
+    @Test
+    void testSetStatusToInvalidStatus() {
+        Payment payment = new Payment("payment-123", "VOUCHER", this.paymentData, this.order);
+
+        assertThrows(IllegalArgumentException.class, () -> payment.setStatus("MEOW"));
     }
 }
