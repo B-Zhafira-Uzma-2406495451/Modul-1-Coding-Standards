@@ -18,6 +18,7 @@ import static org.mockito.Mockito.*;
 import id.ac.ui.cs.advprog.eshop.model.Order;
 import id.ac.ui.cs.advprog.eshop.model.Product;
 import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
+import id.ac.ui.cs.advprog.eshop.repository.OrderRepository;
 
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
